@@ -24,17 +24,24 @@ import java.util.Map;
  */
 public class SimpleIoc {
     //创建容器
-    Map<String, Object> beanMap = new HashMap<String, Object>();
+    static Map<String, Object> beanMap = new HashMap<String, Object>();
 
-    public SimpleIoc(String fileLocation) throws Exception {
-        loadBeans(fileLocation);
+    static{
+        try {
+            loadBeans("simpleIoc.xml");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+    public static Object getBean(String className){
+        return beanMap.get(className);
     }
 
     /**
      * 加载xml文件读取数据并放入bean容器当
      * @param fileLocation
      */
-    private void loadBeans(String fileLocation) throws Exception {
+    private static void loadBeans(String fileLocation) throws Exception {
         //读取资源文件
         InputStream in = SimpleIoc.class.getClassLoader().getResourceAsStream(fileLocation);
         //创建xml解析对象
@@ -91,12 +98,9 @@ public class SimpleIoc {
         }
     }
 
-    private void registerBean(String id, Object bean) {
+    private static void registerBean(String id, Object bean) {
         beanMap.put(id, bean);
     }
 
-    public Object getBean(String className) {
-        return beanMap.get(className);
-    }
 
 }
