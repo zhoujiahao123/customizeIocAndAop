@@ -2,23 +2,36 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5eee9751-0245-4695-910f-1432d7c59494" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/simpleAop/Advice.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/simpleAop/BeforeAdvice.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/simpleAop/IHelloService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/simpleAop/MethodInvocation.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/simpleAop/SimpleAop.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/SimpleAopTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/aop/AdvisedSupport.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/aop/TargetSource.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/aop/advice/MethodInterceptor.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/aop/advice/SimpleInterceptor.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/aop/invocation/JoinPoint.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/aop/invocation/MethodInvocation.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/aop/invocation/ReflectiveMethodInvocation.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/aop/matcher/AspectJExpressionPointcut.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/aop/matcher/ClassFilter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/aop/matcher/MethodMatcher.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/aop/matcher/PointCut.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/aop/proxy/AbstractAopProxy.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/aop/proxy/AopProxy.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/aop/proxy/JDKDynamicAopProxy.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/aop/service/HelloServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/aop/service/IHelloService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/AopTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/MatcherTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/simpleIoc/SimpleIoc.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/simpleIoc/SimpleIoc.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/SimpleIocTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/SimpleIocTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/simpleIoc/SimpleIoc.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/simpleIoc/SimpleIoc.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/SimpleIocTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/SimpleIocTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CoverageViewManager">
+    <option name="myElementSize" value="241" />
   </component>
   <component name="DatabaseView">
     <option name="SHOW_INTERMEDIATE" value="true" />
@@ -48,6 +61,7 @@
   <component name="ProjectId" id="1RKUbMyYc0zrQCKLz8YpUO2Akdm" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="PropertiesComponent">
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="project.structure.last.edited" value="Modules" />
@@ -67,7 +81,27 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.SimpleAopTest.getProxy">
+  <component name="RunManager" selected="JUnit.AopTest.test">
+    <configuration name="AopTest.test" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="customeAopAndIoc" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="AopTest" />
+      <option name="METHOD_NAME" value="test" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="MatcherTest.testMethodMatcher" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="customeAopAndIoc" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="MatcherTest" />
+      <option name="METHOD_NAME" value="testMethodMatcher" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="SimpleAopTest.getProxy" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="customeAopAndIoc" />
       <option name="PACKAGE_NAME" value="" />
@@ -90,6 +124,8 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.AopTest.test" />
+        <item itemvalue="JUnit.MatcherTest.testMethodMatcher" />
         <item itemvalue="JUnit.SimpleAopTest.getProxy" />
         <item itemvalue="JUnit.SimpleIocTest.getBean" />
       </list>
@@ -107,7 +143,10 @@
       <updated>1569415351617</updated>
       <workItem from="1569415353237" duration="4056000" />
       <workItem from="1569421053500" duration="1894000" />
-      <workItem from="1569482325741" duration="2362000" />
+      <workItem from="1569482325741" duration="2904000" />
+      <workItem from="1569550023065" duration="1580000" />
+      <workItem from="1569895494826" duration="4042000" />
+      <workItem from="1569913788955" duration="2525000" />
     </task>
     <servers />
   </component>
@@ -126,5 +165,8 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/customeAopAndIoc$AopTest_test.ic" NAME="AopTest.test Coverage Results" MODIFIED="1569915924428" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
   </component>
 </project>
