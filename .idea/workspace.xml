@@ -2,27 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5eee9751-0245-4695-910f-1432d7c59494" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/aop/AdvisedSupport.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/aop/TargetSource.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/aop/advice/MethodInterceptor.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/aop/advice/SimpleInterceptor.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/aop/invocation/JoinPoint.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/aop/invocation/MethodInvocation.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/aop/invocation/ReflectiveMethodInvocation.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/aop/matcher/AspectJExpressionPointcut.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/aop/matcher/ClassFilter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/aop/matcher/MethodMatcher.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/aop/matcher/PointCut.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/aop/proxy/AbstractAopProxy.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/aop/proxy/AopProxy.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/aop/proxy/JDKDynamicAopProxy.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/aop/service/HelloServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/aop/service/IHelloService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/AopTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/MatcherTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/simpleIoc/SimpleIocFuXie.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/simpleIoc/SimpleIocFuXie.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/SimpleIocTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/SimpleIocTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/simpleIoc/SimpleIocFuXie.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/simpleIoc/SimpleIocFuXie.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/SimpleIocTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/SimpleIocTest.class" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -81,7 +66,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.AopTest.test">
+  <component name="RunManager" selected="JUnit.SimpleIocTest.getBean">
     <configuration name="AopTest.test" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="customeAopAndIoc" />
       <option name="PACKAGE_NAME" value="" />
@@ -124,10 +109,10 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.SimpleIocTest.getBean" />
         <item itemvalue="JUnit.AopTest.test" />
         <item itemvalue="JUnit.MatcherTest.testMethodMatcher" />
         <item itemvalue="JUnit.SimpleAopTest.getProxy" />
-        <item itemvalue="JUnit.SimpleIocTest.getBean" />
       </list>
     </recent_temporary>
   </component>
@@ -146,7 +131,8 @@
       <workItem from="1569482325741" duration="2904000" />
       <workItem from="1569550023065" duration="1580000" />
       <workItem from="1569895494826" duration="4042000" />
-      <workItem from="1569913788955" duration="2525000" />
+      <workItem from="1569913788955" duration="3443000" />
+      <workItem from="1570622749776" duration="2814000" />
     </task>
     <servers />
   </component>

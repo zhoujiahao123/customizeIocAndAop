@@ -1,74 +1,70 @@
 package simpleIoc;
 
-import org.w3c.dom.Document;
-import org.w3c.dom.Element;
-import org.w3c.dom.Node;
-import org.w3c.dom.NodeList;
-import org.xml.sax.SAXException;
+import com.sun.deploy.model.Resource;
+import org.dom4j.Document;
+import org.dom4j.DocumentException;
+import org.dom4j.Element;
+import org.dom4j.io.SAXReader;
 
-import javax.xml.parsers.DocumentBuilder;
-import javax.xml.parsers.DocumentBuilderFactory;
-import javax.xml.parsers.ParserConfigurationException;
-import java.io.IOException;
 import java.io.InputStream;
 import java.lang.reflect.Field;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class SimpleIocFuXie {
-    Map<String, Object> beanMap = new HashMap<String, Object>();
+    private static final Map<String, Object> beans = new HashMap<String, Object>();
 
-    public SimpleIocFuXie(String fileLocation) throws Exception {
-        loadBeans(fileLocation);
-    }
-
-    private void loadBeans(String fileLocation) throws Exception {
-        InputStream in = SimpleIocFuXie.class.getClassLoader().getResourceAsStream(fileLocation);
-        DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
-        DocumentBuilder builder = factory.newDocumentBuilder();
-        Document doc = builder.parse(in);
-        Element element = doc.getDocumentElement();
-        NodeList nodeList = element.getChildNodes();
-        for (int i = 0; i < nodeList.getLength(); i++) {
-            Node node = nodeList.item(i);
-            if (node instanceof Element) {
-                Element beanElement = (Element) node;
-                String id = beanElement.getAttribute("id");
-                String className = beanElement.getAttribute("class");
-                //反射创建类
-                Class beanClass = null;
-                beanClass = Class.forName(className);
-                Object bean = beanClass.newInstance();
-                //获取类的属性值并注入
-                NodeList propertyList = beanElement.getElementsByTagName("property");
-                for (int j = 0; j < propertyList.getLength(); j++) {
-                    Node propertyNode = propertyList.item(j);
-                    if (propertyNode instanceof Element) {
-                        Element propertyElement = (Element) propertyNode;
-                        String name = propertyElement.getAttribute("name");
-                        String value = propertyElement.getAttribute("value");
-                        Field declaredField = beanClass.getDeclaredField(name);
-                        declaredField.setAccessible(true);
-                        if (value != null && value.length() > 0) {
-                            declaredField.set(bean, value);
-                        } else {
-                            String ref = propertyElement.getAttribute("ref");
-                            if (ref == null || ref.length() == 0) {
-                                throw new IllegalArgumentException("参数错误");
-                            }else {
-                                declaredField.set(bean,getBean(ref));
-                            }
-                        }
-                        registerBean(id,bean);
-                    }
-                }
-            }
+    static {
+        try {
+            loadBean("simpleIoc.xml");
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
-    public Object getBean(String id){
-        return beanMap.get(id);
+
+    public static Object getBean(String id) {
+        return beans.get(id);
     }
-    private void registerBean(String id,Object bean){
-        beanMap.put(id,bean);
+
+    private static void loadBean(String filePath) throws Exception {
+        InputStream is = SimpleIocFuXie.class.getClassLoader().getResourceAsStream(filePath);
+        //1.获取读对象
+        SAXReader reader = new SAXReader();
+        //2根据输入流获取文档
+        Document document = reader.read(is);
+        //3.获取根节点
+        Element root = document.getRootElement();
+        //4.
+        List<Element> beanElementList = root.selectNodes("//bean");
+        for (Element beanElement : beanElementList) {
+            String id = beanElement.attributeValue("id");
+            String className = beanElement.attributeValue("class");
+            //反射创建出类，接下来设置属性需要它
+            Class beanClass = Class.forName(className);
+            //创建实例
+            Object bean = beanClass.newInstance();
+            //开始处理property标签
+            List<Element> propertyElementList = beanElement.selectNodes("property");
+            for (Element propertyElement : propertyElementList) {
+                String fieldName = propertyElement.attributeValue("name");
+                String fieldValue = propertyElement.attributeValue("value");
+                System.out.println(beanClass.getName());
+                System.out.println(fieldName);
+                //根据属性名称获取对应的属性，并给他赋值
+                Field field = beanClass.getDeclaredField(fieldName);
+                field.setAccessible(true);
+                //没有value字段，说明是用的ref。
+                if (fieldValue == null) {
+                    String ref = propertyElement.attributeValue("ref");
+                    field.set(bean, getBean(ref));
+                } else {
+                    field.set(bean,fieldValue);
+                }
+            }
+            //存入容器中
+            beans.put(id,bean);
+        }
+
     }
 }

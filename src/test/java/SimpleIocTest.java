@@ -7,10 +7,9 @@ import simpleIoc.Wheel;
 public class SimpleIocTest {
     @Test
     public void getBean() throws Exception{
-
-        Wheel wheel = (Wheel) SimpleIoc.getBean("wheel");
+        Wheel wheel = (Wheel) SimpleIocFuXie.getBean("wheel");
         System.out.println(wheel);
-        Car car = (Car) SimpleIoc.getBean("car");
+        Car car = (Car) SimpleIocFuXie.getBean("car");
         System.out.println(car);
     }
 }
